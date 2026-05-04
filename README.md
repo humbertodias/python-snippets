@@ -24,6 +24,10 @@ A collection of small Python projects showing how to use Redis, AWS SQS (with Lo
 
 * [Player Movement](nosql/move-player/README.md) → api that persists player position in DynamoDB via an SQS queue
 
+### Postgresql
+
+* [Player Inventory](sql/player-inventory/README.md) → api handling player inventory in a postgresql db
+
 ### Infrastructure as Code
 
 * [CloudFormation](infra/cf/README.md) → AWS infrastructure examples
