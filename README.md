@@ -11,12 +11,11 @@ This repository contains a collection of Python examples and mini-projects demon
 * Example implementation of a leaderboard using Redis sorted sets.
 * 📁 [redis/leaderboard](redis/leaderboard)
 
-
 ### 2. Redis (Pub/Sub)
 
 * Basic Chat using Redis Pub/Sub to delivery message to clients.
 * 📁 [redis/chat](redis/chat/README.md)
-* 
+
 ### 3. AWS SQS
 
 * Demonstrates a simple event-driven system using AWS SQS (via LocalStack).
