@@ -24,9 +24,7 @@ A collection of small Python projects showing how to use Redis, AWS SQS (with Lo
 
 * [Terraform](infra/tf/README.md) → infrastructure provisioning examples
 
-### Kubernetes
-
-* [k8s](infra/k8s/README.md) → Basic deployments and manifests
+* [Kubernetes](infra/k8s/README.md) → Basic deployments and manifests
 
 ### Web Frameworks
 
