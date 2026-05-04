@@ -18,9 +18,11 @@ A collection of small Python projects showing how to use Redis, AWS SQS (with Lo
 
 * [Daily reward](sqs/daily_reward/README.md) → event-based daily rewards
 
-### AWS Lambda
+### AWS DynamoDB
 
-* [Level UP](nosql/level-up/README.md) → lambda doing player level up using DynamoDb
+* [Level UP](nosql/level-up/README.md) → lambda calculating player level up using DynamoDb
+
+* [Player Movement](nosql/move-player/README.md) → api that persists player position in DynamoDB via an SQS queue
 
 ### Infrastructure as Code
 
