@@ -6,44 +6,43 @@ This repository contains a collection of Python examples and mini-projects demon
 
 ## Projects
 
-### 1. Redis Leaderboard
+### 1. Redis
 
 * Example implementation of a leaderboard using Redis sorted sets.
-* 📁 [`redis-leaderboard`](redis-leaderboard)
+* 📁 [redis/leaderboard](redis/leaderboard)
 
 
-### 2. XP Gain System (AWS SQS)
+### 2. AWS SQS
 
 * Demonstrates a simple event-driven system using AWS SQS (via LocalStack).
-* 📁 [`sqs-xp`](sqs-xp/README.md)
+* 📁 [sqs/xp](sqs/xp/README.md)
 
 
-### 3. Web Framework Examples
+### 3. Web Frameworks
 
 * Simple applications using different Python web frameworks:
 
-  * FastAPI
-  * Flask
-  * Tornado
-* 📁 [`web-misc`](web-misc/README.md)
+  * 📁 [web/fastapi](web/fastapi/README.md)
+  * 📁 [web/flask](web/flask/README.md)
+  * 📁 [web/tornado](web/tornado/README.md)
 
 
 ### 4. Infrastructure as Code (CloudFormation)
 
 * AWS infrastructure examples using CloudFormation.
-* 📁 [`infra/cf`](infra/cf/README.md)
+* 📁 [infra/cf](infra/cf/README.md)
 
 
 ### 5. Infrastructure as Code (Terraform)
 
 * Infrastructure provisioning examples using Terraform.
-* 📁 [`infra/tf`](infra/tf/README.md)
+* 📁 [infra/tf](infra/tf/README.md)
 
 
-### 6. Kubernetes Examples
+### 6. Kubernetes
 
 * Basic Kubernetes manifests and deployments.
-* 📁 [`infra/k8s`](infra/k8s/README.md)
+* 📁 [infra/k8s](infra/k8s/README.md)
 
 
 ## Notes
