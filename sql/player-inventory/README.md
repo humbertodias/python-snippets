@@ -7,5 +7,4 @@ curl -X POST "http://localhost:8000/players" \
 
 curl -X POST "http://localhost:8000/players/1/items?item_id=1&quantity=2"
 
-
 curl -X GET "http://localhost:8000/players/1/items"

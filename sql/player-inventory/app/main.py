@@ -4,8 +4,10 @@ from sqlalchemy.orm import Session
 from db import SessionLocal
 from models import Player
 from schemas import PlayerCreate
+
 from service import gain_xp
 
+from models import Inventory
 from service import add_item, get_inventory, use_item
 
 app = FastAPI()
@@ -38,18 +40,18 @@ def list_players(db: Session = Depends(get_db)):
     return db.query(Player).all()
 
 
-
-
 @app.post("/players/{player_id}/items")
 def give_item(player_id: int, item_id: int, quantity: int = 1, db: Session = Depends(get_db)):
     return add_item(db, player_id, item_id, quantity)
-
 
 @app.get("/players/{player_id}/inventory")
 def inventory(player_id: int, db: Session = Depends(get_db)):
     return get_inventory(db, player_id)
 
-
 @app.post("/players/{player_id}/use-item")
 def use(player_id: int, item_id: int, db: Session = Depends(get_db)):
     return use_item(db, player_id, item_id)
+
+@app.get("/players/{player_id}/items")
+def get_all_items(player_id: int, db: Session = Depends(get_db)):
+    return db.query(Inventory).filter(Inventory.player_id == player_id).all()
