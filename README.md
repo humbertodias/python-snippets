@@ -26,32 +26,29 @@ This repository contains a collection of Python examples and mini-projects demon
 * Demonstrates a simple event-driven system for daily reward using AWS SQS.
 * 📁 [sqs/daily_reward](sqs/daily_reward/README.md)
 
-### 5. Web Frameworks
+### 5. Infrastructure as Code (CloudFormation)
+
+* AWS infrastructure examples using CloudFormation.
+* 📁 [infra/cf](infra/cf/README.md)
+
+### 6. Infrastructure as Code (Terraform)
+
+* Infrastructure provisioning examples using Terraform.
+* 📁 [infra/tf](infra/tf/README.md)
+
+### 7. Kubernetes
+
+* Basic Kubernetes manifests and deployments.
+* 📁 [infra/k8s](infra/k8s/README.md)
+
+### 8. Web Frameworks
 
 * Simple applications using different Python web frameworks:
 
   * 📁 [web/fastapi](web/fastapi/README.md)
   * 📁 [web/flask](web/flask/README.md)
   * 📁 [web/tornado](web/tornado/README.md)
-
-### 6. Infrastructure as Code (CloudFormation)
-
-* AWS infrastructure examples using CloudFormation.
-* 📁 [infra/cf](infra/cf/README.md)
-
-
-### 7. Infrastructure as Code (Terraform)
-
-* Infrastructure provisioning examples using Terraform.
-* 📁 [infra/tf](infra/tf/README.md)
-
-
-### 8. Kubernetes
-
-* Basic Kubernetes manifests and deployments.
-* 📁 [infra/k8s](infra/k8s/README.md)
-
-
+  
 ## Notes
 
 * Some examples may use LocalStack to simulate AWS services locally.
