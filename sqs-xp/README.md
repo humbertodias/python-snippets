@@ -1,6 +1,6 @@
 Start stack
 ```shell
-docker compose up --build
+docker compose up -d --build
 ```
 
 Change XP
