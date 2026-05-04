@@ -1,0 +1,31 @@
+services:
+  localstack:
+    image: localstack/localstack
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=sqs
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./init-sqs.sh:/etc/localstack/init/ready.d/init-sqs.sh"
+            
+  api:
+    build: ./api
+    environment:
+    - PYTHONUNBUFFERED=1
+    ports:
+      - "8000:8000"
+    depends_on:
+      - localstack
+
+  worker:
+    build: ./worker
+    environment:
+    - PYTHONUNBUFFERED=1
+    depends_on:
+      localstack:
+        condition: service_healthy
+    deploy:
+      replicas: 2

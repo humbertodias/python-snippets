@@ -42,7 +42,7 @@ A FastAPI app that sends XP events to an SQS queue using LocalStack.
 - API docs:
   - `http://localhost:8000/docs`
 
-### 3. `web`
+### 3. `web-misc`
 A collection of small web examples using FastAPI, Flask, and Tornado.
 
 - `web/fastapi/main.py` — simple in-memory FastAPI user service.
