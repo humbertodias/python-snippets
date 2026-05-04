@@ -7,6 +7,7 @@ services:
       - SERVICES=sqs
       - AWS_ACCESS_KEY_ID=test
       - AWS_SECRET_ACCESS_KEY=test
+      - LOCALSTACK_AUTH_TOKEN=${LOCALSTACK_AUTH_TOKEN}
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "./init-sqs.sh:/etc/localstack/init/ready.d/init-sqs.sh"
