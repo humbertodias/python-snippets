@@ -1,3 +1,5 @@
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/humbertodias/python-snippets)
+
 # Python Snippets
 
 This repository contains a collection of Python examples and mini-projects demonstrating the use of Redis, AWS SQS (with LocalStack), CloudFormation, Terraform, Kubernetes, and various web frameworks.
