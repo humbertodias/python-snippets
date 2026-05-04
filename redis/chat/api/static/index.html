@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MMO Chat Client</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #111;
+      color: #eee;
+      margin: 0;
+      padding: 20px;
+    }
+
+    #chat {
+      height: 400px;
+      overflow-y: auto;
+      border: 1px solid #333;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    input, button {
+      padding: 10px;
+      margin: 5px;
+    }
+
+    input {
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>🎮 MMO Room Chat</h2>
+
+<div>
+  <input id="room" placeholder="room id (e.g. room1)" />
+  <button onclick="connect()">Connect</button>
+</div>
+
+<div id="chat"></div>
+
+<input id="user" placeholder="username" />
+<input id="message" placeholder="message" />
+<button onclick="sendMessage()">Send</button>
+
+<script>
+let socket = null;
+
+function connect() {
+  const room = document.getElementById("room").value;
+
+  socket = new WebSocket(`ws://localhost:8000/ws/${room}`);
+
+  socket.onopen = () => {
+    addMessage("SYSTEM", "Connected to " + room);
+  };
+
+  socket.onmessage = (event) => {
+    const data = JSON.parse(event.data);
+    addMessage(data.user, data.message);
+  };
+
+  socket.onclose = () => {
+    addMessage("SYSTEM", "Disconnected");
+  };
+}
+
+function sendMessage() {
+  const room = document.getElementById("room").value;
+  const user = document.getElementById("user").value;
+  const message = document.getElementById("message").value;
+
+  fetch(`/room/${room}/message`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ user, message })
+  });
+
+  document.getElementById("message").value = "";
+}
+
+function addMessage(user, message) {
+  const chat = document.getElementById("chat");
+  const div = document.createElement("div");
+  div.textContent = `${user}: ${message}`;
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
+</script>
+
+</body>
+</html>
