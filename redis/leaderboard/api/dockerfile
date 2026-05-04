@@ -1,9 +1,14 @@
-FROM python:3.14
-
+FROM python:3.14-slim AS base
 WORKDIR /app
 COPY requirements.txt .
 RUN pip install -r requirements.txt
-
 COPY main.py .
 
+# DEBUG IMAGE
+FROM base AS debugger
+RUN pip install debugpy
+CMD ["python", "-X", "frozen_modules=off", "-m", "debugpy", "--listen", "0.0.0.0:5678", "--wait-for-client", "-m", "uvicorn.main", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+# PROD IMAGE
+FROM base AS primary
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
