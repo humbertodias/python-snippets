@@ -1,0 +1,41 @@
+# -------------------------
+# AWS CLI / credentials (NEVER commit)
+# -------------------------
+.aws/
+*.pem
+*.key
+
+# -------------------------
+# CloudFormation local artifacts
+# -------------------------
+*.packaged.yaml
+*.template.yaml
+*.output.json
+
+# -------------------------
+# Temporary / logs
+# -------------------------
+*.log
+logs/
+
+# -------------------------
+# OS files
+# -------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# Environment files
+# -------------------------
+.env
+
+# -------------------------
+# IDE files
+# -------------------------
+.vscode/
+.idea/
+
+# -------------------------
+# Optional: stack exports / cache
+# -------------------------
+cloudformation-packaged/

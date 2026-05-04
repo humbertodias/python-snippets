@@ -1,0 +1,37 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "SQS XP system with DLQ and redrive policy"
+
+Resources:
+
+  # -------------------------
+  # Dead Letter Queue (DLQ)
+  # -------------------------
+  XPDeadLetterQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: xp-dlq
+
+  # -------------------------
+  # Main Queue
+  # -------------------------
+  XPQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: xp-queue
+      RedrivePolicy:
+        deadLetterTargetArn: !GetAtt XPDeadLetterQueue.Arn
+        maxReceiveCount: 3
+
+Outputs:
+
+  XPQueueURL:
+    Description: "Main XP Queue URL"
+    Value: !Ref XPQueue
+
+  XPDeadLetterQueueURL:
+    Description: "DLQ URL"
+    Value: !Ref XPDeadLetterQueue
+
+  XPQueueARN:
+    Description: "Main XP Queue ARN"
+    Value: !GetAtt XPQueue.Arn
