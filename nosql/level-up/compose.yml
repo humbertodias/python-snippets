@@ -1,0 +1,45 @@
+services:
+  localstack:
+    image: localstack/localstack:latest
+    container_name: localstack
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=dynamodb
+      - DEFAULT_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      - DEBUG=1
+      - PERSISTENCE=1
+      - DATA_DIR=/var/lib/localstack/data
+      - LOCALSTACK_AUTH_TOKEN=${LOCALSTACK_AUTH_TOKEN}
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./init-dynamodb.sh:/etc/localstack/init/ready.d/init-dynamodb.sh"
+  dynamodb-admin:
+    image: aaronshaf/dynamodb-admin
+    container_name: dynamodb-admin
+    environment:
+      - DYNAMO_ENDPOINT=http://localstack:4566
+      - AWS_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+    ports:
+      - "8001:8001"
+    depends_on:
+      - localstack
+
+  lambda:
+    build:
+      context: app
+    container_name: game-lambda
+    environment:
+      - TABLE_NAME=players
+      - AWS_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      - DYNAMO_ENDPOINT=http://localstack:4566
+    ports:
+      - "9000:8080"
+    depends_on:
+      - localstack

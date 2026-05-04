@@ -17,7 +17,11 @@ A collection of small Python projects showing how to use Redis, AWS SQS (with Lo
 * [XP system](sqs/xp/README.md) → event-driven player XP updates
 
 * [Daily reward](sqs/daily_reward/README.md) → event-based daily rewards
-  
+
+### AWS Lambda
+
+* [Level UP](nosql/level-up/README.md) → lambda doing player level up using DynamoDb
+
 ### Infrastructure as Code
 
 * [CloudFormation](infra/cf/README.md) → AWS infrastructure examples
