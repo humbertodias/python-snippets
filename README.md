@@ -12,6 +12,10 @@ A collection of small Python projects showing how to use Redis, AWS SQS (with Lo
 
 * [Chat (Pub/Sub)](redis/chat/README.md) → real-time messaging using Redis Pub/Sub
 
+* [URL Shortener](redis/url-shortener/README.md) → URL Shortener using Redis
+
+* [Rate Limit](redis/rate-limit/README.md) → Rate-limit using Redis
+
 ### AWS SQS
 
 * [XP system](sqs/xp/README.md) → event-driven player XP updates
