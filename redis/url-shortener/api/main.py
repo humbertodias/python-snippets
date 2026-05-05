@@ -35,8 +35,6 @@ def shorten_url(
     url: str = Query(...),
     alias: str = None
 ):
-    ip = request.client.host
-
     if alias:
         code = alias
 
