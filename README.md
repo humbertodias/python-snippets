@@ -10,11 +10,11 @@ A collection of small Python projects showing how to use Redis, AWS SQS (with Lo
 
 * [Leaderboard (zadd)](redis/leaderboard/README.md) → simple ranking system using sorted sets
 
-* [Chat (Pub/Sub)](redis/chat/README.md) → real-time messaging using Redis Pub/Sub
+* [Chat (Pub/Sub)](redis/chat/README.md) → real-time messaging using Pub/Sub
 
-* [URL Shortener](redis/url-shortener/README.md) → URL Shortener using Redis
+* [URL Shortener](redis/url-shortener/README.md) → URL Shortener
 
-* [Rate Limit](redis/rate-limit/README.md) → Rate-limit using Redis
+* [Rate Limit](redis/rate-limit/README.md) → Rate-limit
 
 ### AWS SQS
 
@@ -24,13 +24,13 @@ A collection of small Python projects showing how to use Redis, AWS SQS (with Lo
 
 ### AWS DynamoDB
 
-* [Level UP](nosql/level-up/README.md) → lambda calculating player level up using DynamoDb
+* [Level UP](nosql/level-up/README.md) → lambda calculating player level up
 
 * [Player Movement](nosql/move-player/README.md) → api that persists player position in DynamoDB via an SQS queue
 
 ### Postgresql
 
-* [Player Inventory](sql/player-inventory/README.md) → api handling player inventory in a postgresql db
+* [Player Inventory](sql/player-inventory/README.md) → api handling player inventory
 
 ### Infrastructure as Code
 
