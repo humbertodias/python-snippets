@@ -12,7 +12,7 @@ A collection of small Python projects showing how to use Redis, AWS SQS (with Lo
 
 * [Chat (Pub/Sub)](redis/chat/README.md) → real-time messaging using Pub/Sub
 
-* [URL Shortener](redis/url-shortener/README.md) → using deterministic short code
+* [URL Shortener](redis/url-shortener/README.md) → using deterministic short code with length 6
 
 * [Rate Limit](redis/rate-limit/README.md) → 10 requests at window of 60 seconds
 

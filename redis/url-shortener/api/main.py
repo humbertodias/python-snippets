@@ -29,28 +29,6 @@ def generate_code(url: str, length=6):
 
     return code[:length]
 
-
-# =========================
-# Rate limit (per IP)
-# =========================
-RATE_LIMIT = 10   # requests
-WINDOW = 60       # seconds
-
-def check_rate_limit(ip: str):
-    key = f"rate:{ip}"
-
-    current = r.get(key)
-
-    if current is None:
-        r.set(key, 1, ex=WINDOW)
-        return
-
-    if int(current) >= RATE_LIMIT:
-        raise HTTPException(status_code=429, detail="Too many requests")
-
-    r.incr(key)
-
-
 @app.get("/shorten")
 def shorten_url(
     request: Request,
@@ -58,7 +36,6 @@ def shorten_url(
     alias: str = None
 ):
     ip = request.client.host
-    check_rate_limit(ip)
 
     if alias:
         code = alias
@@ -87,7 +64,6 @@ def shorten_url(
     return {
         "short_url": f"{BASE_URL}/{code}"
     }
-
 
 @app.get("/{code}")
 def redirect(code: str):
