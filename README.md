@@ -16,6 +16,8 @@ A collection of small Python projects showing how to use Redis, AWS SQS (with Lo
 
 * [Rate Limit](redis/rate-limit/README.md) → 10 requests at window of 60 seconds
 
+* [QR Code Redemption](redis/qr-redemption/README.md) → generate and redeem QR codes for player inventory items
+
 ### AWS SQS
 
 * [XP system](sqs/xp/README.md) → event-driven player XP updates

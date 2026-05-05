@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>QR Redemption</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 24px; }
+      section { margin-bottom: 24px; }
+      label { display: inline-block; width: 90px; }
+      input { margin-bottom: 8px; }
+      img { display: block; margin-top: 12px; max-width: 250px; }
+      .response { margin-top: 12px; padding: 12px; border: 1px solid #ddd; background: #f9f9f9; }
+    </style>
+  </head>
+  <body>
+    <h1>QR Redemption</h1>
+    <section>
+      <h2>Generate QR Code</h2>
+      <form id="generate-form">
+        <label for="item_id">Item ID:</label>
+        <input type="text" id="item_id" name="item_id" value="sword" required />
+        <button type="submit">Generate</button>
+      </form>
+      <div id="generate-result" class="response"></div>
+    </section>
+    <section>
+      <h2>Redeem QR Code</h2>
+      <form id="redeem-form">
+        <label for="code">Code:</label>
+        <input type="text" id="code" name="code" required />
+        <br />
+        <label for="player_id">Player ID:</label>
+        <input type="text" id="player_id" name="player_id" value="alice" required />
+        <br />
+        <button type="submit">Redeem</button>
+      </form>
+      <div id="redeem-result" class="response"></div>
+    </section>
+    <script>
+      const generateForm = document.getElementById('generate-form');
+      const redeemForm = document.getElementById('redeem-form');
+      const generateResult = document.getElementById('generate-result');
+      const redeemResult = document.getElementById('redeem-result');
+
+      generateForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const itemId = document.getElementById('item_id').value;
+        const response = await fetch(`/qr/generate?item_id=${encodeURIComponent(itemId)}`);
+        const data = await response.json();
+        if (!response.ok) {
+          generateResult.innerHTML = `<strong>Error:</strong> ${data.detail || 'Failed to generate QR'}`;
+          return;
+        }
+        generateResult.innerHTML = `
+          <div><strong>Code:</strong> ${data.code}</div>
+          <div><strong>Item:</strong> ${data.item_id}</div>
+          <div><img src="data:image/png;base64,${data.qr_base64}" alt="QR Code" /></div>
+        `;
+      });
+
+      redeemForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const code = document.getElementById('code').value;
+        const playerId = document.getElementById('player_id').value;
+        const response = await fetch(`/qr/redeem?code=${encodeURIComponent(code)}&player_id=${encodeURIComponent(playerId)}`);
+        const data = await response.json();
+        if (!response.ok) {
+          redeemResult.innerHTML = `<strong>Error:</strong> ${data.detail || 'Failed to redeem code'}`;
+          return;
+        }
+        redeemResult.innerHTML = `<div>${data.message}</div>`;
+      });
+    </script>
+  </body>
+</html>
