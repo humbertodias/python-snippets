@@ -34,6 +34,8 @@ A collection of small Python projects showing how to use Redis, AWS SQS (with Lo
 
 * [Player Inventory](sql/player-inventory/README.md) → api handling player inventory
 
+* [Game Session Tracker](sql/game-session-tracker/README.md) → api handling game session
+
 ### Infrastructure as Code
 
 * [CloudFormation](infra/cf/README.md) → AWS infrastructure examples
