@@ -14,7 +14,7 @@ A collection of small Python projects showing how to use Redis, AWS SQS (with Lo
 
 * [URL Shortener](redis/url-shortener/README.md) → using deterministic short code with length 6
 
-* [Rate Limit](redis/rate-limit/README.md) → 10 requests at window of 60 seconds
+* [Rate Limit](redis/rate-limit/README.md) → limit of 10 requests within a 60-second window
 
 * [QR Code Redemption](redis/qr-redemption/README.md) → generate and redeem QR codes for player inventory items
 
@@ -22,7 +22,7 @@ A collection of small Python projects showing how to use Redis, AWS SQS (with Lo
 
 * [XP system](sqs/xp/README.md) → event-driven player XP updates
 
-* [Daily reward](sqs/daily_reward/README.md) → event-based daily rewards
+* [Daily reward](sqs/daily-reward/README.md) → event-based daily rewards
 
 ### AWS DynamoDB
 
