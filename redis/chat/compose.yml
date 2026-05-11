@@ -16,6 +16,6 @@ services:
       - REDIS_HOST=redis
 
   redis:
-    image: redis:7
+    image: redis:alpine
     ports:
       - "6379:6379"
